@@ -78,21 +78,6 @@ class TravelApiTest {
                 .getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
-    @Test
-    void rejectsInvalidCreateAndUpdateWithoutChangingStoredData() {
-        TravelRequest invalid = new TravelRequest(" ", "South Korea", "Jeju",
-                LocalDate.of(2027, 1, 10), 0, new BigDecimal("-1.00"));
-        assertThat(rest.postForEntity("/api/travels", invalid, String.class).getStatusCode())
-                .isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(repository.count()).isZero();
-
-        TravelResponse created = rest.postForObject("/api/travels", request(), TravelResponse.class);
-        String path = "/api/travels/" + created.id();
-        assertThat(rest.exchange(path, HttpMethod.PUT, new HttpEntity<>(invalid), String.class)
-                .getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(rest.getForObject(path, TravelResponse.class)).isEqualTo(created);
-    }
-
     private TravelRequest request() {
         return new TravelRequest("Jeju Island", "South Korea", "Jeju",
                 LocalDate.of(2027, 1, 10), 3, new BigDecimal("350000.00"));

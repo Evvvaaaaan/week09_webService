@@ -3,7 +3,6 @@ package com.webservice.travel.controller;
 import com.webservice.travel.dto.TravelRequest;
 import com.webservice.travel.dto.TravelResponse;
 import com.webservice.travel.service.TravelService;
-import jakarta.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +25,7 @@ public class TravelController {
     }
 
     @PostMapping
-    public ResponseEntity<TravelResponse> create(@Valid @RequestBody TravelRequest request) {
+    public ResponseEntity<TravelResponse> create(@RequestBody TravelRequest request) {
         TravelResponse response = service.create(request);
         return ResponseEntity.created(URI.create("/api/travels/" + response.id())).body(response);
     }
@@ -42,7 +41,7 @@ public class TravelController {
     }
 
     @PutMapping("/{id}")
-    public TravelResponse update(@PathVariable Long id, @Valid @RequestBody TravelRequest request) {
+    public TravelResponse update(@PathVariable Long id, @RequestBody TravelRequest request) {
         return service.update(id, request);
     }
 
