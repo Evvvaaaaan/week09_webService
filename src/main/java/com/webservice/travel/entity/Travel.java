@@ -25,10 +25,10 @@ public class Travel {
     @Column(nullable = false, length = 100)
     private String city;
 
-    @Column(name = "departure_date", nullable = false)
+    @Column(nullable = false)
     private LocalDate departureDate;
 
-    @Column(name = "duration_days", nullable = false)
+    @Column(nullable = false)
     private Integer durationDays;
 
     @Column(nullable = false, precision = 12, scale = 2)

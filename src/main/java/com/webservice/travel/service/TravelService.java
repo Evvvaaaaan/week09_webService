@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class TravelService {
     private final TravelRepository repository;
 
@@ -19,7 +19,6 @@ public class TravelService {
         this.repository = repository;
     }
 
-    @Transactional
     public TravelResponse create(TravelRequest request) {
         Travel travel = new Travel(request.destination(), request.country(), request.city(),
                 request.departureDate(), request.durationDays(), request.budget());
@@ -34,7 +33,6 @@ public class TravelService {
         return TravelResponse.from(findTravel(id));
     }
 
-    @Transactional
     public TravelResponse update(Long id, TravelRequest request) {
         Travel travel = findTravel(id);
         travel.update(request.destination(), request.country(), request.city(),
@@ -42,7 +40,6 @@ public class TravelService {
         return TravelResponse.from(repository.save(travel));
     }
 
-    @Transactional
     public void delete(Long id) {
         findTravel(id);
         repository.deleteById(id);
