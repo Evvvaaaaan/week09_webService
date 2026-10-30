@@ -1,0 +1,267 @@
+{
+  "baseUrl": "https://week09-webservice.onrender.com",
+  "startedAt": "2026-10-30T08:13:37.694Z",
+  "captureMethod": "Actual HTTP requests and direct JDBC SELECT queries, rendered in a local evidence viewer. These are not Postman or DBeaver application screenshots.",
+  "steps": [
+    {
+      "name": "step07_post_api",
+      "title": "Create travel on Render",
+      "type": "http",
+      "checkedAt": "2026-10-30T08:13:41.971Z",
+      "method": "POST",
+      "url": "https://week09-webservice.onrender.com/api/travels",
+      "requestBody": {
+        "destination": "Busan deployment verification",
+        "country": "South Korea",
+        "city": "Busan",
+        "departureDate": "2027-02-10",
+        "durationDays": 2,
+        "budget": 200000
+      },
+      "status": 201,
+      "statusText": "Created",
+      "durationMs": 2583,
+      "headers": {
+        "content-type": "application/json",
+        "location": "/api/travels/5",
+        "date": "Fri, 30 Oct 2026 08:13:41 GMT",
+        "x-render-origin-server": "Render"
+      },
+      "responseBody": {
+        "id": 5,
+        "destination": "Busan deployment verification",
+        "country": "South Korea",
+        "city": "Busan",
+        "departureDate": "2027-02-10",
+        "durationDays": 2,
+        "budget": 200000
+      }
+    },
+    {
+      "name": "step07_post_db",
+      "title": "Verify inserted travel in MariaDB",
+      "type": "database",
+      "checkedAt": "2026-10-30T08:13:43.265733Z",
+      "sql": "SELECT id, destination, country, city, departure_date, duration_days, budget FROM travels WHERE id = 5",
+      "rows": [
+        {
+          "id": 5,
+          "destination": "Busan deployment verification",
+          "country": "South Korea",
+          "city": "Busan",
+          "departure_date": "2027-02-10",
+          "duration_days": 2,
+          "budget": 200000
+        }
+      ]
+    },
+    {
+      "name": "step07_get_all",
+      "title": "List travels on Render",
+      "type": "http",
+      "checkedAt": "2026-10-30T08:13:44.601Z",
+      "method": "GET",
+      "url": "https://week09-webservice.onrender.com/api/travels",
+      "requestBody": null,
+      "status": 200,
+      "statusText": "OK",
+      "durationMs": 1148,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 30 Oct 2026 08:13:44 GMT",
+        "x-render-origin-server": "Render"
+      },
+      "responseBody": [
+        {
+          "id": 3,
+          "destination": "Dajeon",
+          "country": "South Korea",
+          "city": "Daejeon",
+          "departureDate": "2027-02-10",
+          "durationDays": 30,
+          "budget": 650000
+        },
+        {
+          "id": 4,
+          "destination": "Dajeon",
+          "country": "South Korea",
+          "city": "Daejeon",
+          "departureDate": "2027-02-10",
+          "durationDays": 30,
+          "budget": 650000
+        },
+        {
+          "id": 5,
+          "destination": "Busan deployment verification",
+          "country": "South Korea",
+          "city": "Busan",
+          "departureDate": "2027-02-10",
+          "durationDays": 2,
+          "budget": 200000
+        }
+      ]
+    },
+    {
+      "name": "step07_get_one",
+      "title": "Read created travel on Render",
+      "type": "http",
+      "checkedAt": "2026-10-30T08:13:45.644Z",
+      "method": "GET",
+      "url": "https://week09-webservice.onrender.com/api/travels/5",
+      "requestBody": null,
+      "status": 200,
+      "statusText": "OK",
+      "durationMs": 889,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 30 Oct 2026 08:13:45 GMT",
+        "x-render-origin-server": "Render"
+      },
+      "responseBody": {
+        "id": 5,
+        "destination": "Busan deployment verification",
+        "country": "South Korea",
+        "city": "Busan",
+        "departureDate": "2027-02-10",
+        "durationDays": 2,
+        "budget": 200000
+      }
+    },
+    {
+      "name": "step07_put_api",
+      "title": "Update travel on Render",
+      "type": "http",
+      "checkedAt": "2026-10-30T08:13:47.119Z",
+      "method": "PUT",
+      "url": "https://week09-webservice.onrender.com/api/travels/5",
+      "requestBody": {
+        "destination": "Busan deployment verification",
+        "country": "South Korea",
+        "city": "Busan",
+        "departureDate": "2027-02-10",
+        "durationDays": 4,
+        "budget": 400000
+      },
+      "status": 200,
+      "statusText": "OK",
+      "durationMs": 1330,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 30 Oct 2026 08:13:47 GMT",
+        "x-render-origin-server": "Render"
+      },
+      "responseBody": {
+        "id": 5,
+        "destination": "Busan deployment verification",
+        "country": "South Korea",
+        "city": "Busan",
+        "departureDate": "2027-02-10",
+        "durationDays": 4,
+        "budget": 400000
+      }
+    },
+    {
+      "name": "step07_get_updated",
+      "title": "Read updated travel on Render",
+      "type": "http",
+      "checkedAt": "2026-10-30T08:13:48.334Z",
+      "method": "GET",
+      "url": "https://week09-webservice.onrender.com/api/travels/5",
+      "requestBody": null,
+      "status": 200,
+      "statusText": "OK",
+      "durationMs": 1042,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 30 Oct 2026 08:13:48 GMT",
+        "x-render-origin-server": "Render"
+      },
+      "responseBody": {
+        "id": 5,
+        "destination": "Busan deployment verification",
+        "country": "South Korea",
+        "city": "Busan",
+        "departureDate": "2027-02-10",
+        "durationDays": 4,
+        "budget": 400000
+      }
+    },
+    {
+      "name": "step07_put_db",
+      "title": "Verify updated travel in MariaDB",
+      "type": "database",
+      "checkedAt": "2026-10-30T08:13:48.820985Z",
+      "sql": "SELECT id, destination, country, city, departure_date, duration_days, budget FROM travels WHERE id = 5",
+      "rows": [
+        {
+          "id": 5,
+          "destination": "Busan deployment verification",
+          "country": "South Korea",
+          "city": "Busan",
+          "departure_date": "2027-02-10",
+          "duration_days": 4,
+          "budget": 400000
+        }
+      ]
+    },
+    {
+      "name": "step07_delete_api",
+      "title": "Delete verification travel on Render",
+      "type": "http",
+      "checkedAt": "2026-10-30T08:13:50.282Z",
+      "method": "DELETE",
+      "url": "https://week09-webservice.onrender.com/api/travels/5",
+      "requestBody": null,
+      "status": 204,
+      "statusText": "No Content",
+      "durationMs": 1296,
+      "headers": {
+        "date": "Fri, 30 Oct 2026 08:13:50 GMT",
+        "x-render-origin-server": "Render"
+      },
+      "responseBody": null
+    },
+    {
+      "name": "step07_get_deleted",
+      "title": "Verify deleted travel returns 404",
+      "type": "http",
+      "checkedAt": "2026-10-30T08:13:51.646Z",
+      "method": "GET",
+      "url": "https://week09-webservice.onrender.com/api/travels/5",
+      "requestBody": null,
+      "status": 404,
+      "statusText": "Not Found",
+      "durationMs": 1219,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Fri, 30 Oct 2026 08:13:51 GMT",
+        "x-render-origin-server": "Render"
+      },
+      "responseBody": {
+        "timestamp": "2026-10-30T08:13:51.468+00:00",
+        "status": 404,
+        "error": "Not Found",
+        "path": "/api/travels/5"
+      }
+    },
+    {
+      "name": "step07_delete_db",
+      "title": "Verify deleted travel is absent from MariaDB",
+      "type": "database",
+      "checkedAt": "2026-10-30T08:13:52.162436Z",
+      "sql": "SELECT id, destination, country, city, departure_date, duration_days, budget FROM travels WHERE id = 5",
+      "rows": []
+    }
+  ],
+  "existingIdsBefore": [
+    3,
+    4
+  ],
+  "testTravelId": 5,
+  "existingIdsAfter": [
+    3,
+    4
+  ],
+  "completedAt": "2026-10-30T08:13:53.262Z",
+  "result": "passed"
+}
