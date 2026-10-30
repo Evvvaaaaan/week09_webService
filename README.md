@@ -259,11 +259,8 @@
 - findById()로 여행을 조회하고, 없으면 orElseThrow()로 404 오류를 발생시킨다.
 
 - AI Usage
-- AI 활용: 프로젝트 구성, Entity·CRUD·테스트 구현, 배포 준비, 오류 분석, 배포 검증, README 초안 작성
-- 직접 설정·수정: DB 환경변수와 Postman 요청값
-- 직접 확인: DBeaver SQL 실습, Postman CRUD, DB 저장 결과
-- 확인 방법: 코드 설명을 읽고 API 응답과 실제 DB 결과를 비교했다.
-- AI 사용률: 미산정. 코드 작성에 AI 도움을 많이 받았고 SQL 실습과 Postman 검증은 직접 진행했다.
+- AI 활용: 오류 분석, 관련 개념 및 코드 예제 활용
+- AI 사용률: 30%
 
 - Reflection
 - DB 연결과 트랜잭션을 더 공부하고, 데이터를 안전하게 수정하는 방법을 익히고 싶다.
