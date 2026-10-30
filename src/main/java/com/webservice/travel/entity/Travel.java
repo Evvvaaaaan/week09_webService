@@ -46,6 +46,16 @@ public class Travel {
         this.budget = budget;
     }
 
+    public void update(String destination, String country, String city,
+                       LocalDate departureDate, Integer durationDays, BigDecimal budget) {
+        this.destination = destination;
+        this.country = country;
+        this.city = city;
+        this.departureDate = departureDate;
+        this.durationDays = durationDays;
+        this.budget = budget;
+    }
+
     public Long getId() { return id; }
     public String getDestination() { return destination; }
     public String getCountry() { return country; }
